@@ -44,7 +44,6 @@ namespace CBT
 			{
 				Canvas.AddClass( "hidden" );
 			}
-			Log.Info( $"{TimeSinceLastMessage} {Canvas.HasClass("hidden")}" );
 		}
 
 		void Open()

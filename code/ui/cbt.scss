@@ -70,11 +70,12 @@ chatentry
 	background-color: #000;
 	color: white;
 	min-height: 16px;
-	max-height: 64px; // 4 lines
+	//max-height: 64px; // 4 lines
+	overflow: hidden;
 	width: 100%;
 	flex-shrink: 0;
-	flex-grow: 0;
-	flex-wrap: wrap;
+	//flex-grow: 0;
+	//flex-wrap: wrap;
 	//flex-direction: row;
 	
 	.timestamp
@@ -88,7 +89,7 @@ chatentry
 	{
 		color: #0f0;
 		background-color: #005;
-		flex-shrink: 0;
+		flex-shrink: 1;
 		//padding-left: 8px;
 	}
 
