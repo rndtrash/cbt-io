@@ -16,10 +16,12 @@ namespace CBTIO
 			if ( IsClient )
 			{
 				// RootPanel.SetTemplate( "/minimalhud.html" );
-				RootPanel.StyleSheet.Load( "/ui/cbt.scss" );
+				RootPanel.StyleSheet.Load( "/code/ui/cbt.scss" );
 
-				RootPanel.AddChild<ChatBox>();
-				RootPanel.AddChild<Scoreboard<ScoreboardEntry>>();
+				RootPanel.AddChild<NameTags>( "cordata" );
+				RootPanel.AddChild<CBT.ChatBox>();
+				RootPanel.AddChild<Scoreboard<ScoreboardEntry>>( "cordata" );
+				RootPanel.AddChild<VoiceList>( "cordata" );
 			}
 		}
 	}
