@@ -18,6 +18,7 @@ namespace CBTIO
 				// RootPanel.SetTemplate( "/minimalhud.html" );
 				RootPanel.StyleSheet.Load( "/code/ui/cbt.scss" );
 
+				RootPanel.AddChild<WindowsField>();
 				RootPanel.AddChild<NameTags>( "cordata" );
 				RootPanel.AddChild<CBT.ChatBox>();
 				RootPanel.AddChild<Scoreboard<ScoreboardEntry>>( "cordata" );

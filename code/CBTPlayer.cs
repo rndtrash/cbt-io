@@ -13,22 +13,24 @@ namespace CBTIO
 			//
 			// Use WalkController for movement (you can make your own PlayerController for 100% control)
 			//
-			Controller = new WalkController();
+			Controller = null; //new WalkController();
 
 			//
 			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
 			//
-			Animator = new StandardPlayerAnimator();
+			Animator = null; //new StandardPlayerAnimator();
 
 			//
 			// Use ThirdPersonCamera (you can make your own Camera for 100% control)
 			//
-			Camera = new ThirdPersonCamera();
+			Camera = new CBTCamera();
 
-			EnableAllCollisions = true;
+			EnableAllCollisions = false;
 			EnableDrawing = true;
 			EnableHideInFirstPerson = true;
 			EnableShadowInFirstPerson = true;
+
+			Transmit = TransmitType.Always;
 
 			base.Respawn();
 		}
