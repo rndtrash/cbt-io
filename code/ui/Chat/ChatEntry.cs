@@ -12,8 +12,6 @@ namespace CBT
 		public Label Message { get; internal set; }
 		//public Image Avatar { get; internal set; }
 
-		public RealTimeSince TimeSinceBorn = 0;
-
 		public ChatEntry()
 		{
 			//Avatar = Add.Image();
@@ -25,11 +23,6 @@ namespace CBT
 		public override void Tick() 
 		{
 			base.Tick();
-
-			if ( TimeSinceBorn > 10 ) 
-			{ 
-				Delete();
-			}
 		}
 	}
 }

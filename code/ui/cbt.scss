@@ -21,8 +21,8 @@ chatbox
 	left: 100px;
 	z-index: 100;
 	flex-direction: column;
-	width: 500px;
-	height: 32px;
+	width: 512px;
+	max-height: 64px;
 
 	textentry
 	{
@@ -39,13 +39,26 @@ chatbox
 
 	.chat_canvas
 	{
+		width: 100%;
 		flex-direction: column;
 		align-items: flex-start;
+		justify-content: flex-end;
+		flex-wrap: no-wrap;
+		opacity: 1;
+	}
+	
+	.hidden
+	{
+		opacity: 0;
 	}
 
 	&.open
 	{
 		textentry
+		{
+			opacity: 1;
+		}
+		.chat_canvas
 		{
 			opacity: 1;
 		}
@@ -55,78 +68,47 @@ chatbox
 chatentry
 {
 	background-color: #000;
-	//margin-bottom: 5px;
 	color: white;
-	//transition: all 0.1s ease-out;
-	opacity: 1;
-	max-height: 200px;
+	min-height: 16px;
+	max-height: 64px; // 4 lines
+	width: 100%;
 	flex-shrink: 0;
 	flex-grow: 0;
-	//padding: 12px;
-	//padding-left: 45px;
-	min-height: 16px;
-	max-width: 100%;
-	//transform: scale( 1 );
-
-	&:intro
-	{
-		max-height: 0px;
-		padding-top: 0;
-		padding-bottom: 0;
-		margin-bottom: 0;
-		opacity: 0;
-		transform: scale( 0 );
-	}
-
-	&:outro
-	{
-		opacity: 0;
-		//transition: all 2s ease-out;
-	}
-
-	/*image
-	{
-		width: 32px;
-		height: 32px;
-		min-height: 32px;
-		border-radius: 100px;
-		position: absolute;
-		left: 6px;
-		top: 6px;
-	}*/
+	flex-wrap: wrap;
+	//flex-direction: row;
 	
 	.timestamp
 	{
 		color: #0ff;
 		background-color: #005;
+		flex-shrink: 0;
 	}
 
 	.name
 	{
-		//padding-right: 20px;
-		//font-weight: 600;
 		color: #0f0;
 		background-color: #005;
-		//	background-color: green;
 		flex-shrink: 0;
-		padding-left: 8px;
+		//padding-left: 8px;
 	}
 
 	.message
 	{
 		color: #ccc;
-		//	background-color: red;
-		flex-grow: 1;
+		background-color: #000;
+		flex-wrap: wrap;
 		padding-left: 8px;
+		flex-grow: 1;
+		min-height: 16px;
 	}
 
 	&.noname .name
 	{
 		display: none;
 	}
-
-	&.noavatar image
+	
+	&.noname .message
 	{
-		display: none;
+		padding-left: 0;
 	}
 }
