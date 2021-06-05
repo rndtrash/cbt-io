@@ -2,13 +2,13 @@
 using System;
 using System.Linq;
 
-namespace MinimalExample
+namespace CBTIO
 {
-	partial class MinimalPlayer : Player
+	partial class CBTPlayer : Player
 	{
 		public override void Respawn()
 		{
-			SetModel( "models/citizen/citizen.vmdl" );
+			SetModel( "models/hamster.vmdl" );
 
 			//
 			// Use WalkController for movement (you can make your own PlayerController for 100% control)
