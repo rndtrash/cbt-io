@@ -15,7 +15,49 @@
 /* Etc */
 RootPanel
 {
-	//pointer-events: visible;
+	pointer-events: visible;
+	background-color: rgba(0,0,0,0);
+}
+		
+/* UI toolkit */
+
+.big-button
+{
+	//padding: 8px 4px;
+	background-color: black;
+	color: white;
+	border-image: url(ui/border.png) 16 / 16px;
+	
+	&:hover
+	{
+		background-color: #555;
+		color: white;
+	}
+
+	&:active
+	{
+		background-color: white;
+		color: black;
+		border-image: url(ui/borderinv.png) 16 / 16px;
+	}
+}
+
+.button
+{
+	background-color: black;
+	color: white;
+	
+	&:hover
+	{
+		background-color: #555;
+		color: white;
+	}
+
+	&:active
+	{
+		background-color: white;
+		color: black;
+	}
 }
 
 /* WindowsField */
@@ -25,15 +67,16 @@ WindowsField
 	//background-color: white;
 	width: 100%;
 	height: 100%;
-	//pointer-events: visible;
+	pointer-events: none;
 	position: fixed;
 	top: 0;
 	left: 0;
 	overflow: hidden;
 	
-	Window, CodeWindow
+	.window
 	{
 		position: absolute;
+		flex-direction: column;
 		left: 0;
 		top: 0;
 		width: 256px;
@@ -41,36 +84,78 @@ WindowsField
 		background-color: black;
 		color: white;
 		pointer-events: all;
+		flex-grow: 0;
+		flex-shrink: 0;
+		
+		/* inner part of the window */
+		
+		.header
+		{
+			width: 100%;
+			height: 16px;
+			flex-direction: row;
+			align-items: stretch;
+			flex-shrink: 0;
+			flex-grow: 0;
+			background-color: #555;
+			
+			.title
+			{
+				//color: white;
+				flex-shrink: 0;
+				flex-grow: 0;
+				flex-grow: 1;
+			}
+			
+			.buttons
+			{
+				flex-direction: row;
+				align-items: stretch;
+				
+				.close
+				{
+					color: white;
+					width: 24px;
+					background-color: #a00;
+					
+					&:hover
+					{
+						background-color: #f55;
+					}
+					
+					&:active
+					{
+						background-color: #500;
+					}
+				}
+			}
+		}
+		
+		.inner
+		{
+			width: 100%;
+			flex-grow: 1;
+		}
 	}
 	
 	CodeWindow
 	{
-		flex-direction: row;
 		width: 384px;
 		height: 256px;
 		
-		.code
+		.inner
 		{
-			height: 100%;
-			flex-grow: 1;
-		}
+			flex-direction: row;
 		
-		.sidepanel
-		{
-			flex-direction: column;
-			
-			.mm
+			.code
 			{
-				//padding: 8px 4px;
-				background-color: black;
-				border-image: url(ui/border.png) 16 / 16px fill;
+				height: 100%;
+				flex-grow: 1;
 			}
-			
-			&:active .mm
+		
+			.sidepanel
 			{
-				background-color: white;
-				color: black;
-				border-image: url(ui/borderinv.png) 16 / 16px fill;
+				flex-direction: column;
 			}
 		}
 	}

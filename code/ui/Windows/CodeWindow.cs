@@ -1,10 +1,5 @@
-﻿using Sandbox.UI;
-using Sandbox.UI.Construct;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sandbox;
+using Sandbox.UI;
 
 namespace CBTIO
 {
@@ -13,13 +8,22 @@ namespace CBTIO
 		TextEntry Code;
 		public CodeWindow() : base()
 		{
-			Code = AddChild<TextEntry>( "code toshibasat" );
+			Header.Title.Text = "Code Window";
+
+			Code = Inner.AddChild<TextEntry>( "code toshibasat" );
 			Code.Text = "";
-			var p = AddChild<Panel>( "sidepanel cordata" );
+			var p = Inner.AddChild<Panel>( "sidepanel cordata" );
 			var l = p.AddChild<Label>( "register" );
 			l.Text = "Register A: 0";
-			var b = p.AddChild<Button>( "mm" );
+			var b = p.AddChild<Button>( "mm big-button" );
 			b.Text = "View memory map";
+		}
+
+		public override void Close()
+		{
+			Log.Info( "CodeWindow: am ded" );
+
+			base.Close();
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace CBTIO
 	{
 		public WindowsField()
 		{
-			AddChild<CodeWindow>();
+			AddChild<CodeWindow>( "window cordata" );
 		}
 	}
 }

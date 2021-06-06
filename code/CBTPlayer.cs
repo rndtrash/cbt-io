@@ -8,12 +8,14 @@ namespace CBTIO
 	{
 		public override void Respawn()
 		{
+			Rotation = Rotation.FromAxis( Vector3.Zero, 0 );
+
 			SetModel( "models/hamster.vmdl" );
 
 			//
 			// Use WalkController for movement (you can make your own PlayerController for 100% control)
 			//
-			Controller = null; //new WalkController();
+			Controller = new CBTController(); //new WalkController();
 
 			//
 			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
@@ -51,7 +53,7 @@ namespace CBTIO
 			//
 			// If we're running serverside and Attack1 was just pressed, spawn a ragdoll
 			//
-			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
+			/*if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
 				var ragdoll = new ModelEntity();
 				ragdoll.SetModel( "models/citizen/citizen.vmdl" );  
@@ -59,7 +61,7 @@ namespace CBTIO
 				ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
 				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
 				ragdoll.PhysicsGroup.Velocity = EyeRot.Forward * 1000;
-			}
+			}*/
 		}
 
 		public override void OnKilled()
@@ -67,6 +69,14 @@ namespace CBTIO
 			base.OnKilled();
 
 			EnableDrawing = false;
+		}
+
+		public override void BuildInput( InputBuilder input )
+		{
+			base.BuildInput( input );
+
+			input.AnalogLook = Angles.Zero;
+			input.ViewAngles = Angles.Zero;
 		}
 	}
 }
