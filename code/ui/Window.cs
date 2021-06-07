@@ -78,6 +78,8 @@ namespace CBTIO
 
 		public override void Tick()
 		{
+			base.Tick();
+
 			if (followCursor)
 			{
 				UpdatePos( Parent.MousePos - grabPosition );
@@ -93,8 +95,8 @@ namespace CBTIO
 
 		void UpdatePos(Vector2 newPos)
 		{
-			Style.Top = Length.Pixels( newPos.y);
-			Style.Left = Length.Pixels( newPos.x);
+			Style.Top = Length.Pixels( MathF.Round(newPos.y));
+			Style.Left = Length.Pixels( MathF.Round(newPos.x));
 			Style.Dirty();
 		}
 

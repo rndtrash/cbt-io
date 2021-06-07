@@ -4,7 +4,6 @@ using Sandbox.Hooks;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 using System;
-using System.Linq;
 
 namespace CBT
 {
@@ -17,6 +16,11 @@ namespace CBT
 
 		public readonly int maxMessages = 10;
 		public RealTimeSince TimeSinceLastMessage = 0;
+
+		static SoundEvent NewMessageSE = new( "sounds/click.sound" ) // TODO: use .sound file
+		{
+			UI = true
+		};
 
 		public ChatBox()
 		{
@@ -91,6 +95,8 @@ namespace CBT
 				Canvas.GetChild( 0 ).Delete(true);
 				--cc;
 			}
+
+			Local.Pawn?.PlaySound( NewMessageSE.Name );
 		}
 
 

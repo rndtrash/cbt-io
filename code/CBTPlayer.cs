@@ -1,6 +1,4 @@
 ﻿using Sandbox;
-using System;
-using System.Linq;
 
 namespace CBTIO
 {
@@ -8,6 +6,7 @@ namespace CBTIO
 	{
 		public override void Respawn()
 		{
+			base.Respawn();
 			Rotation = Rotation.FromAxis( Vector3.Zero, 0 );
 
 			SetModel( "models/hamster.vmdl" );
@@ -33,8 +32,6 @@ namespace CBTIO
 			EnableShadowInFirstPerson = true;
 
 			Transmit = TransmitType.Always;
-
-			base.Respawn();
 		}
 
 		/// <summary>
@@ -51,17 +48,17 @@ namespace CBTIO
 			SimulateActiveChild( cl, ActiveChild );
 
 			//
-			// If we're running serverside and Attack1 was just pressed, spawn a ragdoll
+			// If we're running serverside and Attack1 was just pressed, spawn an agent
 			//
-			/*if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
+			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
-				var ragdoll = new ModelEntity();
-				ragdoll.SetModel( "models/citizen/citizen.vmdl" );  
-				ragdoll.Position = EyePos + EyeRot.Forward * 40;
-				ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
-				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
-				ragdoll.PhysicsGroup.Velocity = EyeRot.Forward * 1000;
-			}*/
+				var agent = new BaseAgent();
+				agent.SetModel( "models/hamster.vmdl" );
+				agent.Position = EyePos + EyeRot.Forward * 40;
+				agent.Rotation = Rotation.LookAt( Vector3.Random.Normal );
+				agent.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
+				//agent.Spawn();
+			}
 		}
 
 		public override void OnKilled()

@@ -4,7 +4,7 @@ namespace CBTIO
 {
 	public class CBTCamera : Camera
 	{
-		Vector3 Elevation = new Vector3( 0, 0, 50.0f );
+		Vector3 Elevation = new( 0, 0, 50.0f );
 		Vector3 ActualElevation;
 		public CBTCamera()
 		{
