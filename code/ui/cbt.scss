@@ -164,10 +164,18 @@ WindowsField
 }
 
 	
-.open
+.wf-open
 {
-	pointer-events: all;
-	display: flex;
+	RootPanel
+	{
+		pointer-events: all;
+	}
+
+	WindowsField
+	{
+		pointer-events: all;
+		display: flex;
+	}
 }
 
 /* Chatbox */

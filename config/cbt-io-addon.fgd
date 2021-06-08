@@ -1,7 +1,0 @@
-@SolidClass = trigger_cbt_resource
-[
-	type(choices) : "Type" : 0 : "The type of resource" =
-	[
-		0 : "Oil"
-	]
-]

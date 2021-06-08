@@ -1,0 +1,29 @@
+// 
+// CBTIO.CBTGame : Sandbox.Game 
+// 
+@PointClass = cbtio : ""
+[
+	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
+]
+
+// 
+// CBTIO.TriggerCBTResource : Sandbox.Hammer.BaseTrigger 
+// 
+@SolidClass 
+metadata
+{
+	auto_apply_material = "materials/tools/toolstrigger.vmat"
+}
+= trigger_cbt_resource : ""
+[
+	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
+	units(integer) : "Units" :  : ""
+	type(void) : "Type" :  : ""
+	startdisabled(boolean) : "StartDisabled" :  : ""
+	filtername(boolean) : "filtername" :  : "Filter to use to see if activator triggers me. See filter_activator_name for more explanation."
+
+	input Enable(void) : "Enables this trigger"
+	input Disable(void) : "Disables this trigger"
+	input Toggle(void) : "Toggles this trigger between enabled and disabled states"
+]
+
